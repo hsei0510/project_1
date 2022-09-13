@@ -1,0 +1,109 @@
+@charset "UTF-8";
+html,body{ height: 100%; }
+body {
+  min-width: 1320px;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #666666;
+}
+/*
+실습:
+google 웹폰트 noto sans kr을 적용하시오.
+적용 방식은 link 방식
+*/
+ul,ol{ list-style: none; }
+a { color: #666666; }
+h1,h2,h3,h4,h5,h6 { line-height: 1; }
+
+/* header area */
+#header-wrap {
+  width: 1320px;
+  margin: 0 auto;
+  background: #f1f1f1;
+}
+
+/*상단 고정형 메뉴*/
+#header {
+  width: 1320px;
+  margin: 0 auto;
+  background: blueviolet;
+  padding: 45px 20px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#logo {
+  float: left;
+}
+
+#header .inner { float: right; }
+
+#header .inner #gnb, #header .inner #login-menu { float: left; }
+
+/*
+실습 :
+#gnb #login-menu 의 공통코드를 확인하고 코드를 재작성하시오.
+*/
+#header .inner > ul {
+  overflow: hidden;
+}
+
+#header .inner > ul > li {
+  float: left;
+  height: 20px;
+}
+
+#header .inner > ul > li > a {
+  line-height: 20px;
+}
+
+#gnb {
+  /* overflow: hidden; */
+  margin-right: 93px;
+}
+
+#gnb li {
+  /* float: left;
+  height: 20px; */
+  margin-left: 50px;
+}
+
+/* #gnb li a {
+  line-height: 20px;
+} */
+
+#gnb li:nth-child(1) {
+  margin-left: 0;
+}
+
+/* #login-menu {
+  overflow: hidden;
+} */
+
+#login-menu li {
+  /* float: left;
+  height: 20px; */
+  margin-left: 30px;
+}
+
+/* #login-menu li a {
+  line-height: 20px;
+} */
+
+#login-menu li:nth-child(1) {
+  margin-left: 0;
+}
+
+/* 장바구니 카운터 */
+#login-menu li a.cart span.count {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 5px;
+  border-radius: 50%;
+  background: #ffc01d;
+}

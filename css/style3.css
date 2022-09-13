@@ -1,0 +1,443 @@
+@charset "UTF-8";
+html,body { height: 100%; }
+body {
+  /* 고정형으로 작업, 1320px이하로 떨어지면 하단에 가로스크롤 생기게함 */
+  min-width: 1320px;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #666666;
+}
+
+/*실습 :
+goole 웹폰트 noto sans kr을 적용하시오.
+적용방식은 link 방식*/
+ul, ol { list-style: none; }
+a { color : #666666; }
+h1,h2,h3,h4,h5,h6 { line-height: 1; }
+
+/* header area */
+#header-wrap {
+  width: 1320px;
+  margin: 0 auto;
+  background: #f1f1f1;
+}
+
+/* 상단 고정형 메뉴 */
+#header {
+  /* 왜 여기서  position: fixed;를 하나면
+  #header-wrap에서 하면 왼쪽 끝에 붙어버리고  margin: 0 auto;가 상세됨,
+  그걸 가운데정렬로 바꿀때 매우 많은 코드를 쳐야되서
+  #header-wrap에서는 초기값을 잡아주고 여기서 fixed를 해줌*/
+  position: fixed;
+  width: 1320px;
+  margin: 0 auto;
+  padding: 45px 20px 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 300;
+  /* background: pink; */
+}
+
+#logo { float: left; }
+#header .inner { float: right; }
+#header .inner #gnb, #header .inner #login-menu { float: left; }
+
+/*실습 :
+#gnb #login-menu의 공통코드를 확인하고 코드를 재작성하시오.*/
+#header .inner > ul {
+  overflow: hidden;
+}
+#header .inner > ul li {
+  float: left;
+  /* height: 20px; */
+}
+#header .inner > ul > li > a {
+  line-height: 20px;
+}
+/*--------------------------------------------*/
+
+#gnb {
+  /* overflow: hidden; */
+  margin-right: 93px;
+  /* background: purple; */
+}
+#gnb li {
+  /* float: left;
+  height: 20px; */
+  margin-left: 50px;
+  /* background: red; */
+}
+#gnb li a {
+  /* line-height: 20px; */
+}
+#gnb li:nth-child(1) {
+  margin-left: 0px;
+}
+
+#login-menu {
+  /* overflow: hidden; */
+  /* background: green; */
+}
+#login-menu li {
+  /* float: left;
+  height: 20px; */
+  margin-left: 30px;
+  /* background: blue; */
+}
+#login-menu li a {
+  /* line-height: 20px; */
+}
+#login-menu li:nth-child(1) {
+  margin-left: 0px;
+}
+
+
+/* 장바구니 카운터 */
+#login-menu li a.cart span.count {
+  display: inline-block;
+  /*float: right;*/ /* 원형이 아래로 떨어져서 float: right하니까 위로 딱 올라옴 */
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px; /* 20px로 해야지 원래 맞는데 폰트마다 라인헤이트가 다름, 각각 잡아주기 싫으면 flex하면됨*/
+  text-align: center;
+  color: #fff;
+  margin-left: 5px;
+  border-radius: 50%;
+  background: #ffc01d;
+}
+
+/* 메인 배너 영역 */
+#mainbanner {
+  /* background: yellow; */
+  background-image: url('../img/main_banner_bg.png');
+  background-repeat: no-repeat;
+  background-position: center;  /* 순서대로 x축 y축 */
+  background-size: auto 100%; /* 순서대로 x축 y축 : 100%는 아래 100vh에 영향을 받음 */
+  background-color: #f4f4f4;
+  /* 20220622 background부분 공부더하기 */
+}
+#mainbanner .inner {
+  position: relative;
+  width: 1320px;
+  height: 100vh;
+  margin: 0 auto; /* 가운데 정렬할때 마진영오토할때랑 플로터할때랑 플랙스할때 구별못하겠음 */
+  /* background: red; */
+}
+
+/* 메인배너 텍스트 */
+#mainbanner .maintext {
+  /* position: absolute;
+  width: 100%;
+  min-height: 254px;
+  top: 50%;
+  transform: translateY(-50%); */
+  padding-top: 268px;
+  text-align: center;
+  /* background: yellow; */
+}
+
+/* 메인배너 메인타이틀 */
+#mainbanner .maintext p {
+  /* margin-top: 30px; */
+  font-size: 50px;
+  color: #333;
+}
+#mainbanner .maintext p.maintitle {
+  line-height: 60px;
+}
+#mainbanner .maintext p.subtitle {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #666;
+}
+#mainbanner .maintext p.subtitle + .common-btn {
+  margin-top: 40px;
+}
+
+.common-btn {
+  display: inline-block;
+  width: 180px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 5px;
+  background: #0055b8;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 컨텐츠 영역 */
+#container section .inner {
+  width: 1320px;
+  min-height: 650px;
+  margin:  0 auto;
+  text-align: center;
+  overflow: hidden;
+  /* background: skyblue; */
+}
+/*실습 :
+짝수번째 section의 배경색상을 #f9f9f9로 style 작성하시오.
+*/
+/* #container section:nth-of-type(2n) {
+  background-color: #f9f9f9;
+} */
+#container section:nth-child(even) {
+  background: #f9f9f9;
+  /* background: skyblue; */
+}
+#container section:nth-of-type(1) .inner {
+  padding-top: 165px;
+  min-height: 485px; /*그리드와 가이드선이 뭐가 다르다는거야??,모양이 뭐가 달라졌다는거지?*/
+}
+#container section:nth-of-type(2) .inner {
+  padding-top: 145px;
+  min-height: 505px;
+}
+/* section 공통요소 style*/
+#container section .inner h2 {
+  font-size: 45px;
+  line-height: 1;
+  /* 1이라는 것은 font-size와 동일하게 가겠다(45px)는 의미임,
+  줄바꿈 없이 상관없이 바로 붙여쓰겠다 */
+  color: #333;
+}
+
+#container section .inner .subtitle {
+  margin-top: 22px;
+  /* 27px나왔는데 어디에 5px이 있어서 22px로 한건지?
+  - line-height가 30px있으니까 font-size는 20px이니까 10px이 남음
+  그것이 반으로 나눠져서 5px씩 위아래에 위치하게 되어
+  27px나왔으니까 5px뺀 22px만 margin-top을 준것임  */
+  font-size: 20px;
+  line-height: 30px;
+  color: #666666;
+}
+/* //section 공통요소 style*/
+
+
+#container section .inner .box-wrap {
+  overflow: hidden;
+}
+#container section .inner .box-wrap li {
+  float: left;
+  width: calc(25% - 40px);
+  padding: 0px 20px;
+  text-align: center;
+  /* background: yellow; */
+}
+#container section .inner .box-wrap li .items {
+  border: 1px solid #e3e3e3;
+  padding: 47px 45px;
+}
+#container section .inner .box-wrap li .items h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #252525;
+}
+#container section .inner .box-wrap li .items p {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  line-height: 24px;
+  font-weight: bold;
+  /* font-size: 16px; */
+  /* color: #666666;  기본색상을 #666666으로 잡아놔서 줄필요없음 */
+}
+#container section .inner .box-wrap li .items .img img {
+  opacity: 0.65;
+}
+
+
+/* section 두번째 */
+#container section .inner .thumb-img-wrap {
+  /*가운데 정렬법 : 1.텍스트는 텍스트얼라인 2.마진 마진영오토 3.디스플레이 플렉스,저스티파이컨텐츠센터 */
+  /* 자식 요소 ul을 가운데 정렬한다.
+  단, 조건이 ul의 display값이 inline이거나
+  inline-block일때 정렬이 된다. */
+  text-align: center;
+}
+#container section .inner .thumb-img-wrap ul {
+  overflow: hidden;
+  /* 자식 요소 li의 컨텐츠 크기 만큼 너비가 지정된다. */
+  display: inline-block;
+}
+#container section .inner .thumb-img-wrap ul:nth-child(1) {
+  margin-top: 70px; /* 원래 사이공간이 75px인데 5px빼고(뭐에 5px때문에 빠지는건지 찾아보기) 70px로 적용하기*/
+}
+#container section .inner .thumb-img-wrap ul:nth-child(2) {
+  margin-top: 80px;
+}
+#container section .inner .thumb-img-wrap ul li {
+  float: left;
+  width: calc( 100% / 6 );
+}
+
+#container section .inner .thumb-img-wrap ul li img {
+  /* 이미지가 초기값 220px 이상 또는 이하로 변경 시
+  li 요소의 너비 % 기준으로 크기가 변경된다. */
+  width: 100%;
+}
+/* //section 두번째 */
+
+
+/* section 세번째 */
+#container section .inner .box {
+  float: left;
+  width: 50%;
+  min-height: 650px; /* 오류 : min-width로 잘못침 */
+  text-align: center;
+  /* background: green; */
+}
+#container section .inner .box.img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  /* background: red; */
+}
+#container section .inner .box .text-box {
+  display: inline-block;
+  text-align: left;
+  margin-top: 160.5px;
+  padding-left: 140px;
+}
+#container section .inner .box .text-box h2 {
+  line-height: 60px;
+}
+#container section .inner .box .text-box a {
+  text-align: center;
+  margin-top: 35px;
+}
+/* // section 세번째 */
+
+
+/*실습 :
+위 코드를 참고하여 section 네번재와 다섯번째 style을 완성하시오.*/
+
+#container section:nth-child(3) .inner .box.img {
+  background: url('../img/section_3/bg.png');
+}
+/* section 네번째 */
+#container section:nth-child(4) {
+  background-color: #f4f4f4;
+  background-image: url('../img/section_4/bg_img.png');
+  /*오류 : bacground-color후에 bacground를 해주면 #f4f4f4가 적용이 되지않는다.
+  그러므로 background-color를 하게되면, 꼭 background-image로 엘리먼트를 맞춰줘야 한다.*/
+  background-repeat: no-repeat;
+  background-size: auto 100%; /* 100% = 섹션의 높이와 동일하게 가겠다*/
+  background-position: calc( 50% + 665px ) center; /* 원래 1440px에 반인 720px을 플러스 해줬는데 중심보다 더튀어나오는 값만큼을 빼줘서 665px을 해줌 */
+}
+#container section:nth-child(4) .inner .box {
+  text-align: left;
+}
+#container section:nth-child(4) .inner .box .text-box {
+  display: inline-block;
+  text-align: left;
+  margin-top: 160.5px;
+  padding-left: 50px;
+}
+/* // section 네번째 */
+
+
+/* section 다섯번째 */
+#container section:nth-child(5) {
+    background-color: #1d314a;
+}
+#container section:nth-child(5) .inner h2 {
+  color: #fff;
+}
+#container section:nth-child(5) .inner .box.img {
+  background-image: url('../img/section_5/bg_img.png');
+  background-size: auto 610px;
+  background-position: center bottom;
+}
+/* // section 다섯번째 */
+
+
+/* 하단 영역 */
+#footer {
+  background-color: #eee;
+}
+
+#footer .inner {
+  position: relative;
+  width: 1320px;
+  height: 200px;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  /* background: green; */
+}
+#footer .inner .f-box {
+  float: left;
+  padding-left: 75px;
+  /* background: red; */
+}
+#footer .inner .f-box:nth-child(2) {
+  /* background: blue; */
+}
+
+/* site menu*/
+#footer .inner .f-box ul { overflow: hidden; }
+#footer .inner .f-box ul li {
+  float: left;
+  height: 20px;
+  margin-right: 40px;
+ }
+ #footer .inner .f-box ul li:last-child {
+   margin-right: 0;
+ }
+ #footer .inner .f-box ul li a {
+   line-height: 20px;
+   color: #333;
+  }
+  #footer .inner .f-box .tel {
+    font-size: 16px;
+    margin-top: 17px;
+    line-height: 1;
+    color: #333;
+    font-weight: bold;
+  }
+#footer .inner .f-box .copyright {
+  margin-top: 21px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #777;
+  }
+
+#familysite {
+  position: absolute;
+  width: 190px;
+  height: 30px;
+  top: 41px;
+  right: 20px;
+  border: 1px solid #d1d1d1;
+  color: #333;
+  outline: none;
+  appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding-right: 15px;
+  padding-left:  15px;
+  background-image: url('../img/select_box_arrow.png');
+  background-repeat: no-repeat;
+  /* background-position: right center;  center를 퍼센트로 따지면 50%, right를 퍼센트로 따지면 100%*/
+  background-position: calc( 100% - 15px ) center;
+}
+
+select::-ms-expand {
+  display: none;
+} /* IE 브라우저 select box arrow button 이미지 삭제*/
+
+#familysite:focus {
+  border: 1px solid #999;
+  background-image: url('../img/select_box_arrow_focus.png');
+}
+
+
+
+
+
+/**/
